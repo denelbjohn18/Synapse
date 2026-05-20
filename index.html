@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Synapse — StudyBoard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- LEFT RAIL -->
+      <aside class="rail">
+        <div class="logo" aria-label="Synapse">S</div>
+        <nav class="cluster-nav" id="cluster-nav" aria-label="Cluster navigation"></nav>
+      </aside>
+
+      <!-- CANVAS -->
+      <main class="canvas">
+        <button class="topmenu" id="topmenu-btn" aria-label="Menu">⋯</button>
+        <div class="canvas-scroll" id="canvas">
+          <div class="stickies-layer" id="stickies-layer">
+            <div class="sticky-board">
+              <div class="sticky-tape"></div>
+              <div class="sticky-note">
+                <div class="sticky-label">TO-DO</div>
+                <div class="sticky-text" contenteditable="true" spellcheck="false"></div>
+                <button class="sticky-delete" aria-label="Delete sticky">×</button>
+              </div>
+            </div>
+            <button class="sticky-add" id="sticky-add" aria-label="Add sticky note">＋</button>
+          </div>
+          <div class="canvas-empty" id="canvas-empty">
+            <p>Ask anything in the sidecar to drop your first learning cluster here.</p>
+          </div>
+        </div>
+        <button class="scroll-down" id="scroll-down" aria-label="Scroll to latest">↓</button>
+      </main>
+
+      <!-- SIDECAR -->
+      <aside class="sidecar">
+        <div class="tabs">
+          <button class="tab is-active" data-mode="ask" id="tab-ask">ASK</button>
+          <button class="tab" data-mode="quiz" id="tab-quiz">QUIZ</button>
+        </div>
+
+        <div class="chat" id="chat-ask" data-mode="ask"></div>
+        <div class="chat is-hidden" id="chat-quiz" data-mode="quiz"></div>
+
+        <form class="composer" id="composer" autocomplete="off">
+          <button type="button" class="followup-toggle" id="followup-toggle" disabled title="Add a cluster first">
+            <span class="followup-icon">↳</span>
+            <span class="followup-label" id="followup-label">Follow-up</span>
+          </button>
+          <textarea
+            id="prompt"
+            name="prompt"
+            placeholder="Ask something to study…"
+            rows="1"
+            required
+          ></textarea>
+          <div class="composer-row">
+            <button type="button" class="iconbtn" id="addfile-btn" title="Add file (coming soon)" aria-label="Add file">＋</button>
+            <button type="button" class="iconbtn" id="mic-btn" title="Voice input" aria-label="Voice input">🎙</button>
+            <button type="submit" class="sendbtn" id="send-btn" aria-label="Send">↑</button>
+          </div>
+          <input type="file" id="file-input" accept="image/*" hidden />
+        </form>
+      </aside>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
