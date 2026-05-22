@@ -1,5 +1,15 @@
 .env
 .env.local
+.env*.local
 .vercel
 node_modules
 .DS_Store
+.next/
+out/
+next-env.d.ts
+
+# clerk configuration (can include secrets)
+/.clerk/
+
+# TypeScript build info
+tsconfig.tsbuildinfo
